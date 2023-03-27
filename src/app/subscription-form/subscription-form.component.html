@@ -1,0 +1,42 @@
+<div>
+  <div>
+    <div class="flex flex-col gap-2 items-center justify-center bg-secondary text-primary py-4 px-5 mt-3 md:mt-0 md:px-20">
+      <h3 class="text-2xl font-bold uppercase">Subscription Form</h3>
+      <p class="text-sm">Subscribe to get latest update. </p>
+      <div *ngIf="emailError && !isSubscribed" class="text-red-500 anim"><i class="fa-solid fa-triangle-exclamation"></i> Email is already subscribed</div>
+      <div *ngIf="isSubscribed" class="text-emerald-500"><i class="fa-solid fa-thumbs-up"></i> Thank you for Subscribing</div>
+      <form *ngIf="!isSubscribed" #subForm = ngForm (ngSubmit)="onSubmit(subForm)" class="w-[80%] flex flex-col md:items-center gap-2">
+        <div class="w-full">
+          <input
+          class=" md:py-2 md:pr-28 focus:border-primary drop-shadow-sm md:drop-shadow-md px-10 py-1 w-full outline-none border-[1px] border-slate-300 rounded"
+          type="text"
+          placeholder="Your Name"
+          name="Name"
+          ngModel
+          #Name="ngModel"
+          required>
+          <div class="my-2" *ngIf="Name.touched && Name.invalid">
+            <Span class="text-red-600" *ngIf="Name.errors?.['required']"><i class="fa-solid fa-triangle-exclamation"></i> Name is required</Span>
+          </div>
+      </div>
+        <div class="w-full">
+          <input class=" md:py-2 md:pr-28 focus:border-primary drop-shadow-sm md:drop-shadow-md px-10 py-1 w-full outline-none border-[1px] border-slate-300 rounded"
+                 type="email"
+                 placeholder="Email Address"
+                 name="Email"
+                 ngModel
+                 #Email="ngModel"
+                 required
+                 email>
+                  <div class="my-2" *ngIf="Email.touched && Email.invalid">
+                    <Span class="text-red-600" *ngIf="Email.errors?.['required']"><i class="fa-solid fa-triangle-exclamation"></i> Email is
+                      required</Span>
+                  </div>
+        </div>
+        <div>
+          <button [disabled]="subForm.invalid" class="float-right font-bold hover:brightness-90 hover:scale-105 transition duration-300 cursor-pointer bg-primary text-white px-6 py-2 md:py-2 rounded disabled:pointer-events-none disabled:brightness-95">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

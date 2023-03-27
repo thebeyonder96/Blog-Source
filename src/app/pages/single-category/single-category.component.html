@@ -1,0 +1,11 @@
+<section class="mt-14 md:mt-24">
+  <div>
+    <div class="md:text-center bg-primary px-4 py-4 ">
+      <h1 class="text-nav text-2xl font-bold">{{categoryObj.category}}</h1>
+      <p class="text-nav text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="flex flex-col flex-wrap md:flex-row px-4 py-4 md:px-20">
+      <app-post-card *ngFor="let single of postArray" [postData]="single" class="basis-[25%]"></app-post-card>
+    </div>
+  </div>
+</section>

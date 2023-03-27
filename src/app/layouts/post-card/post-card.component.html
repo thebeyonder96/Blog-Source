@@ -1,0 +1,19 @@
+<div *ngIf="postData" [routerLink]="['/post',postData.id]"
+  class="hover:scale-105 max-w-[380px] h-[500px] mb-5 shadow-lg cursor-pointer rounded overflow-hidden border-[0.5px] border-[#00000013]">
+  <img [src]="postData.data.postImgPath"
+    class=" w-full h-[250px] object-cover p-2 rounded-lg object-center transition-all duration-500 ease-in-out">
+  <div class="flex flex-col items-center justify-between gap-4 p-4 overflow-hidden bg-white ">
+    <div class="flex items-center justify-between gap-2 mb-2">
+      <!-- <small class="text-red-500 ">{{postData.data.category.category}}</small> -->
+      <!-- <small *ngIf="postData.data.isFeatured" class="text-green-500 ml-4">Featured</small> -->
+      <small class="tracking-widest text-sm text-primary border-r-2 border-primary pr-2">{{postData.data.createdAt.toMillis() | date}}</small>
+      <small class="tracking-widest text-sm text-primary">Views - {{postData.data.view}}</small>
+    </div>
+    <div>
+      <h1 class="text-xl">
+        {{postData.data.title}}
+      </h1>
+      <div class="text-sm text-gray-500 mt-3">{{postData.data.excerpt}}</div>
+    </div>
+  </div>
+</div>

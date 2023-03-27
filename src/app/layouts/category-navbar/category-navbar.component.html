@@ -1,0 +1,8 @@
+<nav>
+  <div>
+    <ul class="cursor-pointer  flex list-none gap-4 text-lg text-white tracking-wider">
+      <li [routerLink]="['/category',item.data.category,item.id]" *ngFor="let item of catArray" class="relative before:content-[''] before:w-0 before:h-1 before:bg-[#2fbf71] before:absolute before:-bottom-2 hover:before:w-full before:transition-all before:duration-500 before:rounded-lg hover:font-bold hover:text-white transition-all duration-500 ease-in-out uppercase text-sm text-white/75">{{item.data.category}}</li>
+
+    </ul>
+  </div>
+</nav>
