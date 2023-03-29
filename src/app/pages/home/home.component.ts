@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/service/post.service';
+import * as AOS from 'aos';
+
 
 @Component({
   selector: 'app-home',
@@ -19,5 +21,7 @@ export class HomeComponent implements OnInit {
     this.post.loadLatest().subscribe(val=>{
       this.latestArray = val;
     })
+
+    AOS.init();
   }
 }
